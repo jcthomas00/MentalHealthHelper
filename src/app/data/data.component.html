@@ -1,0 +1,83 @@
+  <section class="banner bg-1 about" id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 align-self-center">
+          <!-- Contents -->
+          <div class="content-block">
+            <h1>Statistics</h1>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col-lg-8 ml-auto">
+              <div class="about-block">
+                <div class="about-item" style="min-height: 500px;">
+                  <div class="content">
+                    <plotly-plot [data]="graph.data" [layout]="graph.layout" [config]="graph.config" [updateOnDataChange]=true
+                    [useResizeHandler]="true" [style]="graph.style"
+                    ></plotly-plot>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4 ml-auto">
+            <div class="about-block">
+              <div class="about-item">
+                <div class="content">
+                  <h5>Can therapy help prevent suicides?</h5>
+                  <p>
+                    A new study shows that a brief course of up to 10 sessions of talk 
+                    therapy compared with standard treatment reduced the risk of subsequent 
+                    suicide attempts by up to 50% in people treated in hospital emergency rooms 
+                    for attempted suicide.
+                  </p>
+                  <p>
+                    The map on this page displays suicides per 100,000 people by country.
+                    Hovering over a country will provide the actual numbers and also list
+                    the number of mental health facilities in that country per 100,000 people
+                    (when available). While the data is largely inconclusive, many countries
+                    with low number of mental health facilities do see higher rates of suicide.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  
+  <section class="section counter bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <div class="counter-item">
+            <h3><span class="count" data-count="29">52.9</span>m</h3>
+            <p>U.S. adults experienced mental illness in 2020</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <div class="counter-item">
+            <h3><span class="count" data-count="200">53.8</span>%</h3>
+            <p>of them did not receive treatment in 2020</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <div class="counter-item">
+            <!-- Counter Number -->
+            <h3><span class="count" data-count="60">46</span>%</h3>
+            <!-- Counter Name -->
+            <p>of suicide victims had a mental health condition</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <div class="counter-item">
+            <!-- Counter Number -->
+            <h3><span class="count" data-count="300">78</span>%</h3>
+            <!-- Counter Name -->
+            <p>of people who commit suicide are male</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,32 +1,50 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FirestoreModule } from '@angular/fire/firestore';
-// import { FireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { DataComponent } from './data/data.component';
+import { ResourcesComponent } from './resources/resources.component';
+import { CaptureImageComponent } from './capture-image/capture-image.component';
+import { FooterComponent } from './footer/footer.component';
+import { ModalComponent } from './modal/modal.component';
+import { MoodHistoryComponent } from './mood-history/mood-history.component';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDCQPV4ciLkZ5UWfB46eJnctib5j6TerRk",
-  authDomain: "testhost-67ad6.firebaseapp.com",
-  projectId: "testhost-67ad6",
-  storageBucket: "testhost-67ad6.appspot.com",
-  messagingSenderId: "174435380016",
-  appId: "1:174435380016:web:4343ca74fbccc422d9b6f5",
-  measurementId: "G-4HF7DBZNC4"
-};
+PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    DataComponent,
+    ResourcesComponent,
+    CaptureImageComponent,
+    FooterComponent,
+    ModalComponent,
+    MoodHistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    HttpClientModule,
+    PlotlyModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    FirestoreModule,
+    FormsModule
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

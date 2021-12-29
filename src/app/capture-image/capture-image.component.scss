@@ -1,0 +1,19 @@
+#videoCapture, canvas, img{
+    max-width: 100%;
+    display: block;
+}
+#imageCaptureCanvas{
+    display: none;
+}
+button{
+    margin: 10px;
+}
+label{
+    text-transform: uppercase;
+}
+
+video#videoCapture {
+    background: url('/assets/images/webcam-access.jpg');
+    background-size: cover;
+    height: auto;
+}

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "testhost-67ad6"
+  },
+  "targets": {
+    "testhost-67ad6": {
+      "hosting": {
+        "test1": [
+          "testhost-67ad6"
+        ]
+      }
+    }
   }
 }

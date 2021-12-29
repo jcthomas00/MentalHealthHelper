@@ -1,0 +1,61 @@
+<div class="row mb-4">
+    <div class="col col-lg-6 col-md-10">
+        <div class="about-block">
+        <!-- Mood Analysis -->
+        <div class="about-item  mb-4">
+            <div class="content">
+                <h5>Mood Analysis</h5>
+                <video #videoCapture id="videoCapture" autoplay width="640" height="480"></video>
+
+                <div *ngIf="webcamAccess === false; else accessButtons">
+                    <button class="btn btn-main-rounded" (click)="getVideo()">Grant Webcam Access</button>
+                </div>
+
+                <ng-template #accessButtons>
+                    <div *ngIf="capture !== ''; else captureImg">
+                        <button class="btn btn-main-rounded btn-grey"  (click)="getVideo()">Retake Photo</button>
+                        <button class="btn btn-main-rounded"  (click)="analyzeImage()">Analyze Mood</button>
+                    </div>
+                    <ng-template #captureImg>
+                        <button class="btn btn-main-rounded"  (click)="captureImage()">Take Photo</button>
+                    </ng-template> 
+                </ng-template>
+
+                <canvas #imageCaptureCanvas id="imageCaptureCanvas" width="640" height="480"></canvas>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col col-lg-6 col-md-10">
+        <div class="about-block">
+        <!-- Mood Metrics -->
+        <div class="about-item">
+            <div class="content">
+                <h5>Mood Metrics</h5>
+                <label for="cur-{{EMOTIONS[0]}}" class="form-label">{{EMOTIONS[0]}}: {{currentEmotions[0]}}</label>
+                <input [(ngModel)]="currentEmotions[0]" type="range" class="form-range" id="cur{{EMOTIONS[0]}}">
+                <label for="cur-{{EMOTIONS[1]}}" class="form-label">{{EMOTIONS[1]}}: {{currentEmotions[1]}}</label>
+                <input [(ngModel)]="currentEmotions[1]" type="range" class="form-range" id="cur{{EMOTIONS[1]}}">
+                <label for="cur-{{EMOTIONS[2]}}" class="form-label">{{EMOTIONS[2]}}: {{currentEmotions[2]}}</label>
+                <input [(ngModel)]="currentEmotions[2]" type="range" class="form-range" id="cur{{EMOTIONS[2]}}">
+                <label for="cur-{{EMOTIONS[3]}}" class="form-label">{{EMOTIONS[3]}}: {{currentEmotions[3]}}</label>
+                <input [(ngModel)]="currentEmotions[3]" type="range" class="form-range" id="cur{{EMOTIONS[3]}}">
+                <label for="cur-{{EMOTIONS[4]}}" class="form-label">{{EMOTIONS[4]}}: {{currentEmotions[4]}}</label>
+                <input [(ngModel)]="currentEmotions[4]" type="range" class="form-range" id="cur{{EMOTIONS[4]}}">
+
+                <!-- <hr>
+                    <div *ngFor="let emotionValue of currentEmotions; let i = index">
+                        <label for="cur-{{EMOTIONS[i]}}" class="form-label">{{EMOTIONS[i]}}: {{currentEmotions[i]}}</label>
+                        <input [(ngModel)]="currentEmotions[i]" type="range" class="form-range" id="cur{{EMOTIONS[i]}}">
+                    </div> 
+                -->
+                <button *ngIf="authService.auth.user | async as user;">
+                    <button class="btn btn-main-rounded btn-pink"  (click)="uploadMoodPoint()">Save Mood Point</button>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<app-modal [message] = "message" ></app-modal>
